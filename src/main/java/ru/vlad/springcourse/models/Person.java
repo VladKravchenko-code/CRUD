@@ -17,14 +17,27 @@ public class Person {
     @Email(message = "Email should by valid")
     private String email;
 
-    public Person(int id, String name, int age, String email) {
+    @Pattern(regexp = "[A-Z]\\w+, [A-Z]\\w+, \\d{6}", message = "Incorrect date format. " +
+            "(Example: Russia, Moscow, 123456)")
+    private String address;
+
+    public Person(int id, String name, int age, String email, String address) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.age = age;
+        this.address = address;
     }
 
     public Person() { }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public int getAge() {
         return age;
